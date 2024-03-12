@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-style: normal;
 }
+/* Home */
 /* HEADER */
 header{
     width: 100%;
@@ -13,7 +14,7 @@ header{
     background-color: #1F0935;
     justify-content: space-between;
     align-items: center;
-    padding: 0 80px;
+    padding: 4px 80px 0px 80px;
 }
 header div{
     display: flex;
@@ -48,3 +49,49 @@ header div button:hover{
     border-radius: 20px;
 }
 /* END HEADER */
+/* Body */
+.body-home{
+    width: 100%;
+    height: 535px;
+    background: url(images/home-background.png) no-repeat top right/cover;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.home-description{    
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+.home-description h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 30px;
+}
+.home-description h4{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: unset;
+    text-align: justify;
+    line-height: 25px;
+}
+.home-description button{
+    color: #ffffff;
+    background-color: #C537B4;
+    border-radius: 20px;
+    padding: 8px 17px;
+    border: none;
+    cursor: pointer;
+    transform: 1ms;
+}
+.home-description button:hover{
+    padding: 8px 17px;
+    background: transparent;
+    outline: 1px solid #C537B4;
+    border-radius: 20px;
+}
+/* END BODY */
