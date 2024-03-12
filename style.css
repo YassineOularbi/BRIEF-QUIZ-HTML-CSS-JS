@@ -137,7 +137,7 @@ footer div a{
     height: auto;
     display: flex;
     flex-direction: row;
-    background-color: #1F0935;
+    background-color: #000312;
     justify-content: space-between;
     align-items: center;
     padding: 4px 80px;
@@ -168,4 +168,9 @@ footer div a{
 .quiz-header img{
     height: 55px;
     width: auto;
+}
+/* END HEADER */
+/* FOOTER */
+.quiz-footer{
+    background-color: #000312;
 }
