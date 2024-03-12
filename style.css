@@ -3,10 +3,11 @@
     padding: 0;
     box-sizing: border-box;
     font-style: normal;
+    text-decoration: none;
 }
 /* Home */
 /* HEADER */
-header{
+.home-header{
     width: 100%;
     height: auto;
     display: flex;
@@ -16,16 +17,16 @@ header{
     align-items: center;
     padding: 4px 80px 0px 80px;
 }
-header div{
+.home-header div{
     display: flex;
     flex-direction: row;
     gap: 50px;
 }
-header img{
+.home-header img{
     width: auto;
     height: 55px;
 }
-header div button{
+.home-header div button{
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -42,7 +43,7 @@ header div button{
     background: #C537B4;
     border-radius: 20px;
 }
-header div button:hover{
+.home-header div button:hover{
     padding: 8px 20px;
     background: transparent;
     outline: 1px solid #C537B4;
@@ -79,8 +80,11 @@ header div button:hover{
     text-align: justify;
     line-height: 25px;
 }
-.home-description button{
+.home-description a{
     color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
     background-color: #C537B4;
     border-radius: 20px;
     padding: 8px 17px;
@@ -88,10 +92,40 @@ header div button:hover{
     cursor: pointer;
     transform: 1ms;
 }
-.home-description button:hover{
+.home-description a:hover{
     padding: 8px 17px;
     background: transparent;
     outline: 1px solid #C537B4;
     border-radius: 20px;
 }
 /* END BODY */
+/* FOOTER */
+footer{
+    padding: 10px 40px;
+    width: 100%;
+    background-color: #5B1A9B;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+footer div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+footer div img{
+    width: auto;
+    height: 20px;
+    cursor: pointer;
+    transform: 1ms;
+}
+footer div a{
+    text-decoration: underline;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 12px;
+}
+/* END FOOTER */
+/* End Home */
