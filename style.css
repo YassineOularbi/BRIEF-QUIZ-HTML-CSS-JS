@@ -155,7 +155,7 @@ footer div a{
     align-items: center;
     gap: 10px;
 }
-.quiz-header div div{
+.Avatar-profil{
     width: 260px;
     height: 50px;
     display: flex;
@@ -165,11 +165,11 @@ footer div a{
     padding: 5px 10px;
     border-radius: 40px;
 }
-.quiz-header div div img{
+.Avatar-profil img{
     width: 45px;
     height: auto;
 }
-.quiz-header div div div {
+.Avatar-profil div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -182,6 +182,7 @@ footer div a{
     height: 45px;
     width: auto;
 }
+
 /* END HEADER */
 /* QUIZ-BODY */
 .quiz-body{
@@ -252,19 +253,24 @@ footer div a{
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 45px;
-    column-gap: 100px;
-    
-
+    column-gap: 170px;
 }
-.quiz-button button{
-    padding: 10px 150px;
+.answer-button{
+    padding: 10px 100px;
     border-radius: 10px;
     border: none;
     color: white;
     background-color: #C537B4;
     opacity: 200%;
-
+    transform: 1ms;
+    cursor: pointer;
 }
+.answer-button:hover{
+    background: transparent;
+    outline: 1px solid #C537B4;
+    padding: 10px 100px;
+    border-radius: 10px;
+}   
 /* FOOTER */
 .quiz-footer{
     background-color: #000312;

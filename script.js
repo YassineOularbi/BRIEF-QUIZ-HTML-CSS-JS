@@ -1,15 +1,15 @@
 let quiz=[
     {
-        title : 'Unlock the Java Secrets: Identify the Keyword for Constants!',
-        description : 'Ready to unravel Java"s mysteries? In this challenge, you"ll delve into the essence of Java programming. Can you identify the keyword used to define a constant value in Java ?',
-        question : 'Question: What keyword is used to define a constant value in Java ?',
+        title : 'Java Milestones Mystery',
+        description : 'Welcome to the Java Milestones Mystery! Let"s uncover significant moments in the Java programming language"s timeline. Test your knowledge of key events that shaped Java"s development!',
+        question : 'Quelle année a marqué le lancement officiel de Java par Sun Microsystems ?',
         response : [
-            'A -  final',
-            'B -  static',
-            'C -  const',
-            'D -  var'
+            'A -  1995',
+            'B -  2000',
+            'C -  1989',
+            'D -  2005'
         ],
-        Correct : 'A -  final'
+        Correct : 'A -  1995'
     },
     {
         title : 'Java History Hunt',
@@ -34,6 +34,18 @@ let quiz=[
             'D -  Linus Torvalds'
         ],
         Correct : 'B -  James Gosling'
+    },
+    {
+        title : 'Unlock the Java Secrets: Identify the Keyword for Constants!',
+        description : 'Ready to unravel Java"s mysteries? In this challenge, you"ll delve into the essence of Java programming. Can you identify the keyword used to define a constant value in Java ?',
+        question : 'Question: What keyword is used to define a constant value in Java ?',
+        response : [
+            'A -  final',
+            'B -  static',
+            'C -  const',
+            'D -  var'
+        ],
+        Correct : 'A -  final'
     }
 ]
 
@@ -42,9 +54,14 @@ let quiz=[
 let score = 0
 let title=document.getElementById("title")
 let description=document.getElementById("description")
-let qts=document.getElementById("qts")
-let response=document.getElementById("response");
-let con = document.getElementById("con");
+let question=document.getElementById("question")
+let response=document.getElementById("response")
+let compteur = document.getElementById("compteur")
+let scorequiz=document.getElementById("score-quiz")
+let badge=document.getElementById("badge")
+let badge3=`<img src="images/3nd.png" alt="">`
+let badge2=`<img src="images/2nd.png" alt="">`
+let badge1=`<img src="images/1er.png" alt="">`
 
 
 
@@ -52,27 +69,38 @@ let i=0
 function getData(){
     title.innerHTML=quiz[i].title;
     description.innerHTML=quiz[i].description;
-    qts.innerHTML=quiz[i].question;
+    question.innerHTML=quiz[i].question;
     for(let j=0;j<quiz[i].response.length;j++){
         response.innerHTML+=
-        `  <button id="rst" class="rst">${quiz[i].response[j]}</button>`
+        `  <button id="answer-button" class="answer-button">${quiz[i].response[j]}</button>`
     }
-    con.innerText = `Question ${i + 1}  of ${quiz.length} `;
+    compteur.innerHTML = `<p>Question ${i + 1}  of ${quiz.length}</p>`;
+
 ;}
 
 getData();
 
 
 function Change(){
-    document.querySelectorAll(".rst").forEach((e)=>{
+    document.querySelectorAll(".answer-button").forEach((e)=>{
         e.addEventListener("click",function(){
-            if(quiz[i].response.length>0 && i <quiz[i].response.length - 2 ){
+            if(quiz[i].response.length>0 && i <quiz[i].response.length ){
                 response.innerHTML=""
-                i++;
-                getData();
-                Change();
-                
             }
+            if (this.innerHTML == quiz[i].Correct) {
+               score+=200; 
+                scorequiz.innerHTML = `Game score : ${score} pts`;
+            }
+            if (score == 200) {
+                badge.innerHTML=badge3
+            } else if (score == 400) {
+                badge.innerHTML=badge2
+            } else if (score == 600) {
+                badge.innerHTML=badge1
+            }
+            i++;
+            getData();
+            Change();
         })
     })
 }
