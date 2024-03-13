@@ -36,10 +36,17 @@ let quiz=[
         Correct : 'B -  James Gosling'
     }
 ]
+
+
+
+let score = 0
 let title=document.getElementById("title")
 let description=document.getElementById("description")
 let qts=document.getElementById("qts")
-let response=document.getElementById("response")
+let response=document.getElementById("response");
+let con = document.getElementById("con");
+
+
 
 let i=0
 function getData(){
@@ -50,9 +57,8 @@ function getData(){
         response.innerHTML+=
         `  <button id="rst" class="rst">${quiz[i].response[j]}</button>`
     }
-
-
-}
+    con.innerText = `Question ${i + 1}  of ${quiz.length} `;
+;}
 
 getData();
 
@@ -65,6 +71,7 @@ function Change(){
                 i++;
                 getData();
                 Change();
+                
             }
         })
     })
