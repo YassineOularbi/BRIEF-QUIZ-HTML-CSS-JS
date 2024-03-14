@@ -63,8 +63,6 @@ let badge3=`<img src="images/3nd.png" alt="">`
 let badge2=`<img src="images/2nd.png" alt="">`
 let badge1=`<img src="images/1er.png" alt="">`
 
-
-
 let i=0
 function getData(){
     title.innerHTML=quiz[i].title;
@@ -75,7 +73,6 @@ function getData(){
         `  <button id="answer-button" class="answer-button">${quiz[i].response[j]}</button>`
     }
     compteur.innerHTML = `<p>Question ${i + 1}  of ${quiz.length}</p>`;
-
 ;}
 
 getData();
@@ -91,17 +88,32 @@ function Change(){
                score+=200; 
                 scorequiz.innerHTML = `Game score : ${score} pts`;
             }
-            if (score == 200) {
-                badge.innerHTML=badge3
-            } else if (score == 400) {
-                badge.innerHTML=badge2
-            } else if (score == 600) {
-                badge.innerHTML=badge1
+            switch (score){
+                case 200:
+                    badge.innerHTML=badge3;
+                    break;
+                case 400:
+                    badge.innerHTML=badge2;
+                    break;
+                case 600:
+                    badge.innerHTML=badge1;
+                    break;
             }
             i++;
             getData();
             Change();
+            passer();
         })
     })
 }
 Change();
+
+
+
+
+function passer(){
+    if(i==quiz.length -1){
+        mafenetre = window.open("Congrats.html","Congratulation");
+    }
+}
+passer();

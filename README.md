@@ -54,4 +54,6 @@ Pour toute question ou commentaire, veuillez contacter [yassineoularbi4@gmail.co
 
 LinkedIn : "www.linkedin.com/in/yassine-oularbi-79730424b"
 
-Plannification Trello : ""
+Planification Trello : "https://trello.com/invite/b/A0BenOKn/ATTI018fd794eadc039c64f9e3fa1f20234f35DD3DF0/quizjs"
+
+Etude UI/UX : "https://www.figma.com/file/RuDy1uSGYldAvMb5BvoDL1/Quiz-Js?type=design&node-id=23%3A29&mode=design&t=TCdkVxqU5ZfwnhXU-1"
