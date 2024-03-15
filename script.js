@@ -88,9 +88,9 @@ function getData() {
 
 getData();
 
-function Change() {
     document.querySelectorAll(".answer-button").forEach((e) => {
         e.addEventListener("click", function () {
+            
             if (quiz[i].response.length > 0 && i < quiz[i].response.length) {
                 response.innerHTML = "";
             }
@@ -98,20 +98,7 @@ function Change() {
                 score += 200;
                 scorequiz.innerHTML = `Game score : ${score} pts`;
             }
-            i++;
-            getData();
-            Change();
-            if (i == quiz.length - 1) {
-                click();
-            }
-        });
-    });
-}
-
-Change();
-
-function checkscore(){
-                switch (score) {
+            switch (score) {
                 case 200:
                     badge.innerHTML = badge3;
                     break;
@@ -122,7 +109,30 @@ function checkscore(){
                     badge.innerHTML = badge1;
                     break;
             }
-}
+            i++;
+            getData();
+          //  Change();
+            if (i == quiz.length - 1) {
+                click();
+            }
+        });
+    });
+
+//Change();
+
+// function checkscore(){
+//                 switch (score) {
+//                 case 200:
+//                     badge.innerHTML = badge3;
+//                     break;
+//                 case 400:
+//                     badge.innerHTML = badge2;
+//                     break;
+//                 case 600:
+//                     badge.innerHTML = badge1;
+//                     break;
+//             }
+// }
 
 congratsTitle = document.getElementById("congrats-title");
 congratsEmojis = document.getElementById("congrats-emojis");
@@ -136,31 +146,26 @@ function click() {
     document.querySelector(".home-header").style.display = "flex";
     document.querySelector(".body-concrats").style.display = "flex";
 
-    // Créez l'élément recompense dynamiquement
-    const recompense = document.createElement("div");
-    recompense.id = "recompense";
-    document.body.appendChild(recompense);
-
-    // Mettez à jour le contenu de l'élément recompense
     let congratScore = `${score / 200} of ${quiz.length} questions answered correctly!`;
-    let recompensec = `<div id="trophy"></div><div class="congrat-score">
+    let recompensewinner = `<div id="trophy"><img class="trophy" src="images/Trophy-winner.png" alt=""></div><div class="congrat-score">
     <h5 id="congrat-score"><br>SCORE : <br><br>${score} PTS</h5>
             <div class="badging" id="badge">
+            <img class="badge-congrats" src="images/1er.png" alt="">
             </div>
     </div>`;
-    recompense.innerHTML = recompensec;
-    congratsScore.innerHTML = congratScore;
-    checkscore();
- if (trophy) {
-        // Mettez à jour le contenu de l'élément trophy
-        if (score >= 600) {
-            winner();
-            trophy.innerHTML = trophyWinner;
-        } else if (score < 600) {} {
-            loser();
-            trophy.innerHTML = trophyLoser;
-        }
+    let recompenseloser = `<div id="trophy"><img class="trophy" src="images/Trophy-loser.png" alt=""></div><div class="congrat-score">
+    <h5 id="congrat-score"><br>SCORE : <br><br>${score} PTS</h5>
+            <div class="badging" id="badge">
+            <img class="badge-congrats" src="images/3nd.png" alt="">
+            </div>
+    </div>`;
+    if(score >= 600){
+        recompense.innerHTML = recompensewinner;
+    } else {
+        recompense.innerHTML = recompenseloser;
     }
+    congratsScore.innerHTML = congratScore;
+    congrat();
 }
 
 
@@ -174,14 +179,14 @@ let loserTitle = "Oh no! Keep going";
 let loserEmojis = `<img src="images/loser-emojis1.png" alt=""> <img src="images/loser-emojis2.png" alt=""> <img src="images/loser-emojis3.png" alt="">`;
 let loserDescription="Don't worry though! Mistakes are part of learning. Take this as an opportunity to review and improve. <br><br>You're making progress! Keep up the effort and don't give up. Learning is a journey, and every step forward counts."
 
-function winner() {
-    congratsTitle.innerHTML = winnerTitle;
-    congratsEmojis.innerHTML = winnerEmojis;
-    congartsDescription.innerHTML = winnerDescription;
+function congrat() {
+    if (score >= 400){
+        congratsTitle.innerHTML = winnerTitle;
+        congratsEmojis.innerHTML = winnerEmojis;
+        congartsDescription.innerHTML = winnerDescription;
+    } else {
+        congratsTitle.innerHTML = loserTitle;
+        congratsEmojis.innerHTML = loserEmojis;
+        congartsDescription.innerHTML = loserDescription;
+    }
 }
-function loser(){
-    congratsTitle.innerHTML = loserTitle;
-    congratsEmojis.innerHTML = loserEmojis;
-    congartsDescription.innerHTML = loserDescription;
-}
-
