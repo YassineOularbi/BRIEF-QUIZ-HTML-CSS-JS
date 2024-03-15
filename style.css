@@ -335,6 +335,14 @@ footer div a{
     padding-top: 10px;
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 50px;
     border-top: 2px solid white;
 }
+.badging{
+
+    height: 60px;
+    width: auto;
+}
+/* END BODY */
+/* End Congratulations */

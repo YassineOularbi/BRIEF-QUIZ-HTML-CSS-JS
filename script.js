@@ -1,11 +1,3 @@
-function clicked() {
-    document.querySelector(".home-header").style.display = "none";
-    document.querySelector(".body-home").style.display = "none";
-    document.querySelector(".quiz-header").style.display = "flex";
-    document.querySelector(".quiz-body").style.display = "flex";
-    document.querySelector(".home-footer").style.backgroundColor = "#000312";
-}
-
 let quiz=[
     {
         title : 'Java Milestones Mystery',
@@ -57,9 +49,11 @@ let quiz=[
     }
 ]
 
-
-
-let score = 0
+let congratsTitle = document.getElementById("congrats-title");
+let congratsEmojis = document.getElementById("congrats-emojis");
+let congartsDescription = document.getElementById("congart-description");
+let congratsScore = document.getElementById("congrats-score");
+let scorec = document.getElementById("congrat-score")
 let title=document.getElementById("title")
 let description=document.getElementById("description")
 let question=document.getElementById("question")
@@ -68,14 +62,28 @@ let compteur = document.getElementById("compteur")
 let scorequiz=document.getElementById("score-quiz")
 let badge=document.getElementById("badge")
 let trophy=document.getElementById("trophy")
-let badge3=`<img src="images/3nd.png" alt="">`
-let badge2=`<img src="images/2nd.png" alt="">`
-let badge1=`<img src="images/1er.png" alt="">`
+let badge3=`<img class="badging" src="images/3nd.png" alt="">`
+let badge2=`<img class="badging" src="images/2nd.png" alt="">`
+let badge1=`<img class="badging" src="images/1er.png" alt="">`
 let trophyWinner=`<img class="trophy" src="images/Trophy-winner.png" alt="">`
 let trophyLoser=`<img class="trophy" src="images/Trophy-loser.png" alt="">`
-
+let score = 0
 let i=0
+
+
+function clicked() {
+    document.querySelector(".home-header").style.display = "none";
+    document.querySelector(".body-home").style.display = "none";
+    document.querySelector(".quiz-header").style.display = "flex";
+    document.querySelector(".quiz-body").style.display = "flex";
+    document.querySelector(".home-footer").style.backgroundColor = "#000312";
+}
+
 function getData() {
+    if (i === quiz.length) {
+        click();
+        return;
+    }
     title.innerHTML = quiz[i].title;
     description.innerHTML = quiz[i].description;
     question.innerHTML = quiz[i].question;
@@ -88,9 +96,9 @@ function getData() {
 
 getData();
 
+function Change() {
     document.querySelectorAll(".answer-button").forEach((e) => {
         e.addEventListener("click", function () {
-            
             if (quiz[i].response.length > 0 && i < quiz[i].response.length) {
                 response.innerHTML = "";
             }
@@ -98,7 +106,18 @@ getData();
                 score += 200;
                 scorequiz.innerHTML = `Game score : ${score} pts`;
             }
-            switch (score) {
+            checkscore();
+            i++;
+            getData();
+            Change();
+        });
+    });
+}
+
+Change();
+
+function checkscore(){
+                switch (score) {
                 case 200:
                     badge.innerHTML = badge3;
                     break;
@@ -109,67 +128,43 @@ getData();
                     badge.innerHTML = badge1;
                     break;
             }
-            i++;
-            getData();
-          //  Change();
-            if (i == quiz.length - 1) {
-                click();
-            }
-        });
-    });
+}
 
-//Change();
-
-// function checkscore(){
-//                 switch (score) {
-//                 case 200:
-//                     badge.innerHTML = badge3;
-//                     break;
-//                 case 400:
-//                     badge.innerHTML = badge2;
-//                     break;
-//                 case 600:
-//                     badge.innerHTML = badge1;
-//                     break;
-//             }
-// }
-
-congratsTitle = document.getElementById("congrats-title");
-congratsEmojis = document.getElementById("congrats-emojis");
-congartsDescription = document.getElementById("congart-description");
-congratsScore = document.getElementById("congrats-score");
-recompense = document.getElementById("recompense");
+function checktrophy(){
+    if (score >= 600){
+        trophy.innerHTML = trophyWinner;
+    } else {
+        trophy.innerHTML = trophyLoser;
+    }
+}
 
 function click() {
     document.querySelector(".quiz-header").style.display = "none";
     document.querySelector(".quiz-body").style.display = "none";
     document.querySelector(".home-header").style.display = "flex";
     document.querySelector(".body-concrats").style.display = "flex";
-
+    document.querySelector(".active").style.backgroundColor = "transparent";
+    
     let congratScore = `${score / 200} of ${quiz.length} questions answered correctly!`;
-    let recompensewinner = `<div id="trophy"><img class="trophy" src="images/Trophy-winner.png" alt=""></div><div class="congrat-score">
-    <h5 id="congrat-score"><br>SCORE : <br><br>${score} PTS</h5>
-            <div class="badging" id="badge">
-            <img class="badge-congrats" src="images/1er.png" alt="">
-            </div>
-    </div>`;
-    let recompenseloser = `<div id="trophy"><img class="trophy" src="images/Trophy-loser.png" alt=""></div><div class="congrat-score">
-    <h5 id="congrat-score"><br>SCORE : <br><br>${score} PTS</h5>
-            <div class="badging" id="badge">
-            <img class="badge-congrats" src="images/3nd.png" alt="">
-            </div>
-    </div>`;
-    if(score >= 600){
-        recompense.innerHTML = recompensewinner;
-    } else {
-        recompense.innerHTML = recompenseloser;
-    }
+    let scores = `SCORE : <br><br>${score} PTS`;
     congratsScore.innerHTML = congratScore;
+    scorec.innerHTML = scores;
+    let trophy=document.getElementById("trophy")
+    let badgescore=document.getElementById("badgescore")
+    if (score >= 600){
+        trophy.innerHTML = trophyWinner;
+        badgescore.innerHTML = badge1;
+
+    } else if(score == 400) {
+        trophy.innerHTML = trophyLoser;
+        badgescore.innerHTML = badge2;
+    } else {
+        trophy.innerHTML = trophyLoser;
+        badgescore.innerHTML = badge3;
+    }
+    
     congrat();
 }
-
-
-
 
 let winnerTitle = "You've successfully completed the quiz";
 let winnerEmojis = `<img src="images/winner-emojis1.png" alt=""> <img src="images/winner-emojis2.png" alt=""> <img src="images/winner-emojis3.png" alt="">`;
