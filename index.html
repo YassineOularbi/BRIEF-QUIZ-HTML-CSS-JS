@@ -8,7 +8,7 @@
     <link rel="icon" href="images/logo-head.png" >
 </head>
 <body>
-    <!-- HEADER -->
+    <!-- HEADER HOME-->
     <header class="home-header">
         <img src="images/logo-black-quiz.png" alt="">
         <div>
@@ -18,19 +18,87 @@
             <button>Contact</button>
         </div>
     </header>
-    <!--END HEADER  -->
-    <!-- BODY -->
+    <!--END HEADER HOME-->
+    <!-- BODY HOME -->
     <section class="body-home">
         <div class="home-description">
             <h1>Dive Into the Ultimate Programming Quiz Experience!</h1>
             <h4>Embark on an interactive journey into the world of programming with our dynamic quiz website! Test your skills, challenge your knowledge, and unlock your coding potential today.</h4>
-            <a href="quiz.html" target="_blank">Get Started   &rarr;</a>
+            <a id="getstarted" class="getstarted" onclick="clicked()">Get Started   &rarr;</a>
         </div>
         <img src="images/Quiz-asset.png" alt="">
     </section>
-    <!-- END BODY -->
-    <!-- FOOTER -->
-    <footer>
+    <!-- END BODY HOME -->
+    <!-- HEADER QUIZ-->
+      <header class="quiz-header">
+        <div>
+            <div class="Avatar-profil">
+                <img src="images/Avatar-profil.png" alt="">
+                <div>
+                    <h5>Yassine Oularbi</h5>
+                    <p>Studant at ENAA</p>
+                </div>
+                <img src="images/level-rating.png" alt="">
+            </div>
+            <h5 id="score-quiz"></h5>
+            <div class="badging" id="badge">
+            </div>
+        </div>
+        <img src="images/logo-black-quiz.png" alt="">
+      </header>
+    <!--END HEADER QUIZ -->
+    <!-- QUIZ BODY -->
+      <section class="quiz-body">
+            <div class="quiz-description">
+                <div class="quiz-title">
+                    <img src="images/java-logo.png" alt="">
+                    <h1>JAVA Language Quiz</h1>
+                </div>   
+                <div class="quiz-answer">
+                    <h1 id="title"></h1>
+                    <h4 id="description"></h4>
+                    <h1 id="question"></h1>
+                    <div id ="response" class="quiz-button">
+                    </div>
+                    <div id="compteur" class="question-level">
+                    </div>
+                </div>
+            </div>
+      </section>
+    <!-- END QUIZ BODY -->
+                <!--CONGRATULATIONS  -->
+        <section class="body-concrats">
+            <div class="congrats-background">
+                <div class="Avatar-profil">
+                    <img src="images/Avatar-profil.png" alt="">
+                    <div>
+                        <h5>Yassine Oularbi</h5>
+                        <p>Studant at ENAA</p>
+                    </div>
+                    <img src="images/level-rating.png" alt="">
+                </div>
+                <div>
+                    <div class="congrats-body">
+                        <div class="home-description">
+                            <h1 id="congrats-title"></h1>
+                            <div id="congrats-emojis" class="congrats-emojis" >
+                            </div>
+                            <h4 id="congart-description"></h4>
+                            <div class="try-again">
+                                <h5 id="congrats-score"></h5>
+                                <a class="getstarted">Play Again   &rarr;</a>
+                            </div>  
+                        </div>
+                        <div id="recompense" class="recompense">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--END CONGRATULATIONS  -->
+    <!-- FOOTER HOME-->
+    <footer class="home-footer">
         <div>
             <img src="images/AndroidFilled.png" alt="">
             <a href="">AR</a>
@@ -46,6 +114,7 @@
             <img src="images/ShareAltOutlined.png" alt="">
         </div>
     </footer>
-    <!-- END FOOTER -->
+    <!-- END FOOTER HOME-->
+        <script src="script.js"></script>
 </body>
 </html>

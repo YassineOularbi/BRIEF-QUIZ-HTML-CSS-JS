@@ -1,3 +1,11 @@
+function clicked() {
+    document.querySelector(".home-header").style.display = "none";
+    document.querySelector(".body-home").style.display = "none";
+    document.querySelector(".quiz-header").style.display = "flex";
+    document.querySelector(".quiz-body").style.display = "flex";
+    document.querySelector(".home-footer").style.backgroundColor = "#000312";
+}
+
 let quiz=[
     {
         title : 'Java Milestones Mystery',
@@ -59,61 +67,121 @@ let response=document.getElementById("response")
 let compteur = document.getElementById("compteur")
 let scorequiz=document.getElementById("score-quiz")
 let badge=document.getElementById("badge")
+let trophy=document.getElementById("trophy")
 let badge3=`<img src="images/3nd.png" alt="">`
 let badge2=`<img src="images/2nd.png" alt="">`
 let badge1=`<img src="images/1er.png" alt="">`
+let trophyWinner=`<img class="trophy" src="images/Trophy-winner.png" alt="">`
+let trophyLoser=`<img class="trophy" src="images/Trophy-loser.png" alt="">`
 
 let i=0
-function getData(){
-    title.innerHTML=quiz[i].title;
-    description.innerHTML=quiz[i].description;
-    question.innerHTML=quiz[i].question;
-    for(let j=0;j<quiz[i].response.length;j++){
-        response.innerHTML+=
-        `  <button id="answer-button" class="answer-button">${quiz[i].response[j]}</button>`
+function getData() {
+    title.innerHTML = quiz[i].title;
+    description.innerHTML = quiz[i].description;
+    question.innerHTML = quiz[i].question;
+    for (let j = 0; j < quiz[i].response.length; j++) {
+        response.innerHTML +=
+            `<button id="answer-button" class="answer-button">${quiz[i].response[j]}</button>`;
     }
     compteur.innerHTML = `<p>Question ${i + 1}  of ${quiz.length}</p>`;
-;}
+}
 
 getData();
 
-
-function Change(){
-    document.querySelectorAll(".answer-button").forEach((e)=>{
-        e.addEventListener("click",function(){
-            if(quiz[i].response.length>0 && i <quiz[i].response.length ){
-                response.innerHTML=""
+function Change() {
+    document.querySelectorAll(".answer-button").forEach((e) => {
+        e.addEventListener("click", function () {
+            if (quiz[i].response.length > 0 && i < quiz[i].response.length) {
+                response.innerHTML = "";
             }
             if (this.innerHTML == quiz[i].Correct) {
-               score+=200; 
+                score += 200;
                 scorequiz.innerHTML = `Game score : ${score} pts`;
-            }
-            switch (score){
-                case 200:
-                    badge.innerHTML=badge3;
-                    break;
-                case 400:
-                    badge.innerHTML=badge2;
-                    break;
-                case 600:
-                    badge.innerHTML=badge1;
-                    break;
             }
             i++;
             getData();
             Change();
-            passer();
-        })
-    })
+            if (i == quiz.length - 1) {
+                click();
+            }
+        });
+    });
 }
+
 Change();
 
+function checkscore(){
+                switch (score) {
+                case 200:
+                    badge.innerHTML = badge3;
+                    break;
+                case 400:
+                    badge.innerHTML = badge2;
+                    break;
+                case 600:
+                    badge.innerHTML = badge1;
+                    break;
+            }
+}
 
+congratsTitle = document.getElementById("congrats-title");
+congratsEmojis = document.getElementById("congrats-emojis");
+congartsDescription = document.getElementById("congart-description");
+congratsScore = document.getElementById("congrats-score");
+recompense = document.getElementById("recompense");
 
+function click() {
+    document.querySelector(".quiz-header").style.display = "none";
+    document.querySelector(".quiz-body").style.display = "none";
+    document.querySelector(".home-header").style.display = "flex";
+    document.querySelector(".body-concrats").style.display = "flex";
 
-function passer(){
-    if(i==quiz.length -1){
-        mafenetre = window.open("Congrats.html","Congratulation");
+    // Créez l'élément recompense dynamiquement
+    const recompense = document.createElement("div");
+    recompense.id = "recompense";
+    document.body.appendChild(recompense);
+
+    // Mettez à jour le contenu de l'élément recompense
+    let congratScore = `${score / 200} of ${quiz.length} questions answered correctly!`;
+    let recompensec = `<div id="trophy"></div><div class="congrat-score">
+    <h5 id="congrat-score"><br>SCORE : <br><br>${score} PTS</h5>
+            <div class="badging" id="badge">
+            </div>
+    </div>`;
+    recompense.innerHTML = recompensec;
+    congratsScore.innerHTML = congratScore;
+    checkscore();
+ if (trophy) {
+        // Mettez à jour le contenu de l'élément trophy
+        if (score >= 600) {
+            winner();
+            trophy.innerHTML = trophyWinner;
+        } else if (score < 600) {} {
+            loser();
+            trophy.innerHTML = trophyLoser;
+        }
     }
 }
-passer();
+
+
+
+
+let winnerTitle = "You've successfully completed the quiz";
+let winnerEmojis = `<img src="images/winner-emojis1.png" alt=""> <img src="images/winner-emojis2.png" alt=""> <img src="images/winner-emojis3.png" alt="">`;
+let winnerDescription = "You've answered all the questions correctly and showcased your programming prowess. That's an outstanding result, and we're incredibly proud of you! <br><br> Keep honing your skills and exploring the exciting world of programming. <br><br> Remember, every challenge is an opportunity for growth!";
+
+let loserTitle = "Oh no! Keep going";
+let loserEmojis = `<img src="images/loser-emojis1.png" alt=""> <img src="images/loser-emojis2.png" alt=""> <img src="images/loser-emojis3.png" alt="">`;
+let loserDescription="Don't worry though! Mistakes are part of learning. Take this as an opportunity to review and improve. <br><br>You're making progress! Keep up the effort and don't give up. Learning is a journey, and every step forward counts."
+
+function winner() {
+    congratsTitle.innerHTML = winnerTitle;
+    congratsEmojis.innerHTML = winnerEmojis;
+    congartsDescription.innerHTML = winnerDescription;
+}
+function loser(){
+    congratsTitle.innerHTML = loserTitle;
+    congratsEmojis.innerHTML = loserEmojis;
+    congartsDescription.innerHTML = loserDescription;
+}
+
