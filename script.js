@@ -187,3 +187,4 @@ function congrat() {
         congartsDescription.innerHTML = loserDescription;
     }
 }
+
