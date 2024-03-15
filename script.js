@@ -180,6 +180,8 @@ function congrat() {
         congratsEmojis.innerHTML = winnerEmojis;
         congartsDescription.innerHTML = winnerDescription;
     } else {
+        var homeDescription = document.querySelector(".home-description");
+        homeDescription.style.gap = '45px';
         congratsTitle.innerHTML = loserTitle;
         congratsEmojis.innerHTML = loserEmojis;
         congartsDescription.innerHTML = loserDescription;

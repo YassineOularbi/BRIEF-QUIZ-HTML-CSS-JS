@@ -68,6 +68,7 @@
     margin-left: 60px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: flex-start;
     gap: 30px;
 }
@@ -346,3 +347,151 @@ footer div a{
 }
 /* END BODY */
 /* End Congratulations */
+/* Responsive Tablette*/
+@media only screen and (max-width: 800px) {
+/* Home */
+    .home-header{
+        padding: 4px 20px;
+    }
+    .home-header div{
+        gap: 0;
+    }
+    .body-img{
+
+        height: 250px;
+        width: auto;
+        
+    }
+    .home-description #getstarted{
+        padding: 5px 15px;
+        font-size: 15px;
+    }
+    /* Quiz */
+    .quiz-body{
+        height: 130vh;
+    }
+    .quiz-button{
+        row-gap: 18px;
+    }
+    .quiz-answer h1{
+        font-size: 20px;
+        padding: 0px 10px;
+    }
+    .quiz-answer h4{
+        font-size: 13px;
+    }
+    .quiz-answer{
+        gap: 15px;
+    }
+    /* Congratulations */
+    .trophy{
+        padding: 0;
+        height: 250px;
+    }
+    .body-concrats{
+        height: 120vh;
+    }
+    .try-again #getstarted{
+        padding: 5px 10px;
+        font-size: 9px;
+    }
+    .home-description #congart-description {
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .congrats-emojis img{
+        height: 20px;
+    }
+    .home-description #congrats-title{
+        font-size: 15px;
+    }
+    .try-again{
+        gap:0;
+    }
+    .congrats-score{
+        font-size: 10px;
+    }
+}
+    
+/* Responsive phone */
+@media only screen and (max-width: 550px) {
+    /* Home */
+        .body-img{
+            display: none;
+        }
+        .home-description{
+            margin: 0px 80px;
+        } 
+        .home-header div button{
+            font-size: 10px;
+            padding: 8px 15px;
+        }
+        .home-header img{
+            width: auto;
+            height: 35px;
+        }
+        /* Quiz */
+    .quiz-button{
+        row-gap: 10px;
+    }
+    .quiz-answer h1{
+        font-size: 15px;
+        padding: 0px 10px;
+    }
+    .quiz-answer h4{
+        font-size: 13px;
+    }
+    .quiz-answer{
+        gap: 15px;
+    }
+    .quiz-header{
+        width: 100%;
+        padding: 4px 0px;
+    }
+    .quiz-header div{
+        gap: 10px;
+    }
+    .badging{
+        height: 10px;
+    }
+    .Avatar-profil{
+        width: 230px;
+        height: 45px;
+        padding: 5px 5px;
+    }
+    .Avatar-profil img{
+        width: 45px;
+        height: auto;
+    }
+    .score-quiz{
+        font-size: 9px;
+    }
+    .quiz-header img{
+        height: 35px;
+        width: auto;
+    }
+    /* Congratulations */
+        .congrats-body{
+        flex-direction: column-reverse;
+        gap: 20px;
+        }
+        .trophy{
+            height: 150px;
+        }
+        .badging{
+            height: 50px;
+        }
+        .home-description #congrats-title{
+            text-align: center;
+            font-size: 13px;
+        }
+        .congrats-emojis{
+           gap: 80px; 
+        }
+        .congrats-emojis img{
+            gap: 30px; 
+         }
+         .home-description #congart-description{
+            display: none;
+         }
+    }
